@@ -1,41 +1,49 @@
 -- Keybindings
 
 -- Leader Key (Space)
-vim.g.mapleader = ' '
+vim.g.mapleader= ' '
 
--- Return to Net RW (Leader + p + v)
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+-- Telescope 
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {}) -- (Leader + f + f)
+vim.keymap.set('n', '<leader>gf', builtin.git_files, {}) -- (Leader + g + f)
+vim.keymap.set('n', '<C-f>', builtin.live_grep, {}) -- (Ctrl + f)
 
--- Scroll Down/Up Respectively 20 Lines
-vim.keymap.set('n', '<leader>j', '20j', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>k', '20k', { noremap = true, silent = true })
+-- Scrolling 
+vim.keymap.set('n', '<leader>j', '20j', {}) -- (Leader + j)
+vim.keymap.set('n', '<leader>k', '20k', {}) -- (Leader + k)
+-- Harpoon
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
 
--- -- -- -- -- -- --
---    Telescope   -- 
--- -- -- -- -- -- --
+vim.keymap.set("n", "<leader>a", mark.add_file) -- (Leader + a)
+vim.keymap.set("n", "<leader>m", ui.toggle_quick_menu) -- (Leader + m)
 
--- Find Local Files (Leader + f + f)
-vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>1", function() ui.nav_file(1) end) -- (Leader + 1)
+vim.keymap.set("n", "<leader>2", function() ui.nav_file(2) end) -- (Leader + 2)
+vim.keymap.set("n", "<leader>3", function() ui.nav_file(3) end) -- (Leader + 3)
+vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end) -- (Leader + 4)
+vim.keymap.set("n", "<leader>5", function() ui.nav_file(5) end) -- (Leader + 5)
 
--- Find Git Files (Leader + g + f) 
-vim.keymap.set('n', '<leader>gf', '<cmd>Telescope git_files<cr>', { noremap = true, silent = true })
 
--- Search Word
-vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true, silent = true })
+-- Completions
+vim.keymap.set('i', '<C-Space>', function() require('cmp').complete() end, { noremap = true, silent = true }) -- (Space)
+vim.keymap.set('i', '<CR>', function() -- (Enter)
+    local cmp = require('cmp')
+    if cmp.visible() then
+        cmp.confirm({ select = true })
+    else
+        -- Use vim.fn to insert a newline if the completion menu is not visible
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, true, true), 'n')
+    end
+end, { noremap = true, silent = true })
+vim.keymap.set('i', '<C-e>', function() require('cmp').abort() end, { noremap = true, silent = true }) -- (Ctrl + e)
+vim.keymap.set('i', '<C-j>', function() require('cmp').scroll(4) end, { noremap = true, silent = true }) -- (Ctrl + j)
+vim.keymap.set('i', '<C-k>', function() require('cmp').scroll(-4) end, { noremap = true, silent = true } -- (Ctrl + k)
+)
+-- File Tree
+ vim.keymap.set('n', '<leader>`', ':NvimTreeToggle<CR>', { noremap = true })
 
--- -- -- -- -- --
---   Harpoon   --
--- -- -- -- -- --
+-- Toggle Term 
+vim.keymap.set('n', '<leader>t', function() require("toggleterm").toggle() end, { noremap = true, silent = true })
 
--- Add Current File to Menu (Leader + a)
-vim.keymap.set('n', '<leader>a', function() require("harpoon.mark").add_file() end, { noremap = true, silent = true })
-
--- Toggle Quick Menu (Leader + m)
-vim.keymap.set('n', '<leader>m', function() require("harpoon.ui").toggle_quick_menu() end, { noremap = true, silent = true })
-
--- Navigating to Files (Leader + 1 to 5)
-vim.keymap.set('n', '<leader>1', function() require("harpoon.ui").nav_file(1) end, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>2', function() require("harpoon.ui").nav_file(2) end, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>3', function() require("harpoon.ui").nav_file(3) end, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>4', function() require("harpoon.ui").nav_file(4) end, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>5', function() require("harpoon.ui").nav_file(5) end, { noremap = true, silent = true })

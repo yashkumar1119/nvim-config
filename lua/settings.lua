@@ -1,58 +1,51 @@
--- General settings
+-- Settings
 
 
--- Line Numbers
-vim.o.number = true
+-- Enable normal and relative line numbers 
+vim.wo.number = true
+vim.wo.relativenumber = true
 
--- Relative Line Numbers
-vim.o.relativenumber = true
+-- Tabs 
+vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
+vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
+vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
+vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 
--- Tab Length
-vim.o.tabstop = 4
+-- Scrolling
+vim.o.scrolloff = 10
+vim.o.sidescrolloff = 5
 
--- Auto-Indent Lnegth
-vim.o.shiftwidth = 4
 
--- Use Spaces instead of Tabs(\t)
-vim.o.expandtab = true
+-- Packer
+vim.cmd [[packadd packer.nvim]]
 
--- Use True Colors
-vim.o.termguicolors = true
+-- Completions
 
--- Get rid of '~'
-vim.o.fillchars = "eob: "
+-- Avoid 'vim' warning
+require'lspconfig'.lua_ls.setup {
+    -- ... other configs
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+}
 
-require("eldritch").setup({
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    transparent = true, -- Enable this to disable setting the background color
-    terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
-    styles = {
-        -- Style to be applied to different syntax groups
-        -- Value is any valid attr-list value for `:help nvim_set_hl`
-        comments = { italic = true },
-        keywords = { italic = true },
-        functions = {},
-        variables = {},
-        -- Background styles. Can be "dark", "transparent" or "normal"
-        sidebars = "dark", -- style for sidebars, see below
-        floats = "dark", -- style for floating windows
-    },
-    sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-    hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-    dim_inactive = false, -- dims inactive windows, transparent must be false for this to work
-    lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
+-- Colorscheme
 
-    --- You can override specific color groups to use other groups or a hex color
-    --- function will be called with a ColorScheme table
-    ---@param colors ColorScheme
-    on_colors = function(colors) end,
+-- Moonlight
+-- Edit
 
-    --- You can override specific highlights to use other groups or a hex color
-    --- function will be called with a Highlights and ColorScheme table
-    ---@param highlights Highlights
-    ---@param colors ColorScheme
-    on_highlights = function(highlights, colors) end,
-})
+vim.g.moonlight_italic_comments = false
+vim.g.moonlight_italic_keywords = false
+vim.g.moonlight_italic_functions = false
+vim.g.moonlight_italic_variables = false
+vim.g.moonlight_contrast = true
+vim.g.moonlight_borders = false
+vim.g.moonlight_disable_background = false
 
-vim.cmd[[colorscheme eldritch]]
+-- Load
+require('moonlight').set()
+vim.cmd[[colorscheme moonlight]]
