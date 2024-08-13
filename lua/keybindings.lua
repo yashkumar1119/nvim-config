@@ -12,6 +12,12 @@ vim.keymap.set('n', '<C-f>', builtin.live_grep, {}) -- (Ctrl + f)
 -- Scrolling 
 vim.keymap.set('n', '<leader>j', '20j', {}) -- (Leader + j)
 vim.keymap.set('n', '<leader>k', '20k', {}) -- (Leader + k)
+
+-- Saving
+vim.keymap.set('n', '<C-s>', vim.cmd.w) -- (Ctrl + s)
+vim.keymap.set('n', '<C-S-s>', vim.cmd.wa) -- (Ctrl + Shift + s)
+vim.keymap.set('n', '<C-q>', vim.cmd.q) -- (Ctrl + q)
+
 -- Harpoon
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
@@ -42,8 +48,8 @@ vim.keymap.set('i', '<C-j>', function() require('cmp').scroll(4) end, { noremap 
 vim.keymap.set('i', '<C-k>', function() require('cmp').scroll(-4) end, { noremap = true, silent = true } -- (Ctrl + k)
 )
 -- File Tree
- vim.keymap.set('n', '<leader>`', ':NvimTreeToggle<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>`', ':NvimTreeToggle<CR>', { noremap = true }) -- (Leader + `)
 
 -- Toggle Term 
-vim.keymap.set('n', '<leader>t', function() require("toggleterm").toggle() end, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>t', function() require("toggleterm").toggle() end, { noremap = true, silent = true }) -- (Leader + t)
 
