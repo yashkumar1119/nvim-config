@@ -15,6 +15,9 @@ vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 vim.o.scrolloff = 10
 vim.o.sidescrolloff = 5
 
+-- Hide the ~ characters in empty lines
+vim.cmd([[set fillchars+=eob:\ ]])  -- Set 'eob' fillchars to a space
+
 
 -- Packer
 vim.cmd [[packadd packer.nvim]]

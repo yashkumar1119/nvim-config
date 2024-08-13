@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/Users/yashkumar/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["codicons.nvim"] = {
+    loaded = true,
+    path = "/Users/yashkumar/.local/share/nvim/site/pack/packer/start/codicons.nvim",
+    url = "https://github.com/mortepau/codicons.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/Users/yashkumar/.local/share/nvim/site/pack/packer/start/harpoon",

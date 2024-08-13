@@ -65,5 +65,9 @@ return require('packer').startup(function(use)
             require("nvim-autopairs").setup {}
         end
     }
+
+    -- Icons
+    use 'mortepau/codicons.nvim'
+
 end)
 

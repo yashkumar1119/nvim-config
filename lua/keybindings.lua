@@ -17,6 +17,8 @@ vim.keymap.set('n', '<leader>k', '20k', {}) -- (Leader + k)
 vim.keymap.set('n', '<C-s>', vim.cmd.w) -- (Ctrl + s)
 vim.keymap.set('n', '<C-S-s>', vim.cmd.wa) -- (Ctrl + Shift + s)
 vim.keymap.set('n', '<C-q>', vim.cmd.q) -- (Ctrl + q)
+vim.keymap.set('n', '<C-S-q>', ':q!<CR>') -- (Ctrl + Shift + q)
+
 
 -- Harpoon
 local mark = require("harpoon.mark")

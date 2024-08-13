@@ -199,8 +199,7 @@ require("toggleterm").setup{
     return 20
   end,
 
-  open_mapping = [[<leader>t]],
-
+  open_mapping = nil,
   direction = 'horizontal', -- Use 'vertical', 'horizontal', 'tab', or 'float'
 
   start_in_insert = true,
@@ -231,4 +230,3 @@ require("toggleterm").setup{
   },
 }
 
--- Auto Pairs
