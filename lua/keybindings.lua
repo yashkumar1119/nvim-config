@@ -36,19 +36,11 @@ vim.keymap.set("n", "<leader>5", function() ui.nav_file(5) end) -- (Leader + 5)
 
 -- Completions
 vim.keymap.set('i', '<C-Space>', function() require('cmp').complete() end, { noremap = true, silent = true }) -- (Space)
-vim.keymap.set('i', '<CR>', function() -- (Enter)
-    local cmp = require('cmp')
-    if cmp.visible() then
-        cmp.confirm({ select = true })
-    else
-        -- Use vim.fn to insert a newline if the completion menu is not visible
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, true, true), 'n')
-    end
-end, { noremap = true, silent = true })
+vim.keymap.set('i', '<S-CR>', function() require('cmp').confirm({ select = true }) end, { noremap = true, silent = true }) -- (Shift + Enter)
 vim.keymap.set('i', '<C-e>', function() require('cmp').abort() end, { noremap = true, silent = true }) -- (Ctrl + e)
 vim.keymap.set('i', '<C-j>', function() require('cmp').scroll(4) end, { noremap = true, silent = true }) -- (Ctrl + j)
-vim.keymap.set('i', '<C-k>', function() require('cmp').scroll(-4) end, { noremap = true, silent = true } -- (Ctrl + k)
-)
+vim.keymap.set('i', '<C-k>', function() require('cmp').scroll(-4) end, { noremap = true, silent = true }) -- (Ctrl + k)
+
 -- File Tree
 vim.keymap.set('n', '<leader>`', ':NvimTreeToggle<CR>', { noremap = true }) -- (Leader + `)
 
