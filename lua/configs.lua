@@ -1,6 +1,5 @@
 -- Configurations (Plugins & Neovim)
 
-
 -- LSP
 local lspconfig = require('lspconfig')
 
@@ -65,7 +64,6 @@ harpoon.setup({
 })
 
 -- Completions
--- configs.lua
 
 local cmp = require('cmp')
 local lspkind = require('lspkind')  -- Optional, for icons in completions
@@ -187,7 +185,6 @@ require('lualine').setup {
 }
 
 -- Toggle Tree 
--- init.lua or settings.lua
 
 require("toggleterm").setup{
   size = function(term)
