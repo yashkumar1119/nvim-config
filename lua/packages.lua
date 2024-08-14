@@ -38,6 +38,9 @@ return require('packer').startup(function(use)
 	-- Moonlight
 	use 'shaunsingh/moonlight.nvim'
 
+    -- Everforest
+    use 'sainnhe/everforest'
+
 	-- File Tree
 	use {
 		'nvim-tree/nvim-tree.lua',

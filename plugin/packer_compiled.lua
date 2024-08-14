@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/yashkumar/.local/share/nvim/site/pack/packer/start/codicons.nvim",
     url = "https://github.com/mortepau/codicons.nvim"
   },
+  everforest = {
+    loaded = true,
+    path = "/Users/yashkumar/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
+  },
   harpoon = {
     loaded = true,
     path = "/Users/yashkumar/.local/share/nvim/site/pack/packer/start/harpoon",

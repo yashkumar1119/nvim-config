@@ -230,3 +230,30 @@ require("toggleterm").setup{
   },
 }
 
+-- Icons
+
+local devicons = require('nvim-web-devicons')
+
+devicons.setup {
+  default = true;
+
+  -- Customize folder icons
+  icons = {
+    folder = {
+      icon = "", -- Folder icon
+      color = "#7a8a4d", -- Muted green color
+      name = "Folder",
+    },
+    folder_open = {
+      icon = "", -- Opened folder icon
+      color = "#7a8a4d", -- Muted green color
+      name = "FolderOpen",
+    },
+    folder_symlink = {
+      icon = "", -- Symlink folder icon
+      color = "#7a8a4d", -- Muted green color
+      name = "FolderSymlink",
+    },
+  },
+}
+
