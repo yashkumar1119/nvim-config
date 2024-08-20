@@ -195,34 +195,29 @@ require("toggleterm").setup{
 }
 
 -- File Tree
-require("nvim-tree").setup({
-    sort = {
-        sorter = "case_sensitive",
-    },
-    view = {
-        width = 30,
-    },
-    git = {
-        enable = true,
-        ignore = false, -- Show all files, including those in .gitignore
-    },
-    renderer = {
-        icons = {
-            glyphs = {
-                default = '',  -- Default file icon
-                symlink = '',  -- Symlink icon
-                git = {
-                    unstaged = '✗', -- Red X for unstaged changes
-                    staged = '✓',   -- Green checkmark for staged changes
-                    untracked = '★', -- Star for untracked files
-                    deleted = '✘',  -- Red X for deleted files
-                    ignored = '◌',  -- Circle for ignored files
-                },
-            },
+require('nvim-tree').setup {
+  renderer = {
+    icons = {
+      glyphs = {
+        default = '',  -- File
+        symlink = '',  -- Symlink
+        git = {
+          unstaged = '✖',  -- Unstaged changes
+          staged = '✓',   -- Staged changes
+          untracked = '★', -- Untracked files
+          deleted = '✖`',  -- Deleted files
+          renamed = '➜',  -- Renamed files
+          ignored = '◌',  -- Ignored files
         },
+        folder = {
+          default = '',  -- Folder (default)
+          open = '',    -- Folder (open)
+          empty = '',   -- Empty folder
+          empty_open = '', -- Empty folder (open)
+          symlink = '', -- Folder (symlink)
+        },
+      },
     },
-    filters = {
-        dotfiles = true,
-    },
-})
+  },
+}
 
