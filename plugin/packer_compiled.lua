@@ -79,6 +79,17 @@ _G.packer_plugins = {
     path = "/Users/yashkumar/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["auto-save.nvim"] = {
+    config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14auto-save\frequire\0" },
+    loaded = true,
+    path = "/Users/yashkumar/.local/share/nvim/site/pack/packer/start/auto-save.nvim",
+    url = "https://github.com/Pocco81/auto-save.nvim"
+  },
+  ["base16-vim"] = {
+    loaded = true,
+    path = "/Users/yashkumar/.local/share/nvim/site/pack/packer/start/base16-vim",
+    url = "https://github.com/chriskempson/base16-vim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/yashkumar/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -103,11 +114,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/yashkumar/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
-  },
-  ["codicons.nvim"] = {
-    loaded = true,
-    path = "/Users/yashkumar/.local/share/nvim/site/pack/packer/start/codicons.nvim",
-    url = "https://github.com/mortepau/codicons.nvim"
   },
   everforest = {
     loaded = true,
@@ -200,6 +206,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
 time([[Config for toggleterm.nvim]], false)
+-- Config for: auto-save.nvim
+time([[Config for auto-save.nvim]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14auto-save\frequire\0", "config", "auto-save.nvim")
+time([[Config for auto-save.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads

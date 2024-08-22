@@ -41,6 +41,9 @@ return require('packer').startup(function(use)
     -- Everforest
     use 'sainnhe/everforest'
 
+    -- Base16 Sandcastle
+    use 'chriskempson/base16-vim'
+
 	-- File Tree
 	use {
 		'nvim-tree/nvim-tree.lua',
@@ -70,7 +73,18 @@ return require('packer').startup(function(use)
     }
 
     -- Icons
-    use 'mortepau/codicons.nvim'
+
+
+    -- Autosave
+    use({
+        "Pocco81/auto-save.nvim",
+        config = function()
+            require("auto-save").setup {
+                -- your config goes here
+                -- or just leave it empty :)
+            }
+        end,
+    })
 
 end)
 

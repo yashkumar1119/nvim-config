@@ -18,6 +18,15 @@ vim.o.sidescrolloff = 5
 -- Hide the ~ characters in empty lines
 vim.cmd([[set fillchars+=eob:\ ]])  -- Set 'eob' fillchars to a space
 
+-- Autosave
+local function auto_save()
+  if vim.fn.mode() == 'n' then  -- Check if in Normal mode
+    vim.cmd('silent! write')  -- Save the file
+  end
+end
+
+-- Set up a timer that runs the auto_save function every 1 second
+vim.fn.timer_start(1000, auto_save, {["repeat"] = -1})
 
 -- Packer
 vim.cmd [[packadd packer.nvim]]
@@ -35,13 +44,14 @@ require'lspconfig'.lua_ls.setup {
         }
     }
 }
-
 -- Colorscheme
 
+-- Base16 Sandcastle
+vim.cmd('colorscheme base16-sandcastle')
 -- Everforest
-vim.g.everforest_background = 'hard' -- Options: 'soft', 'medium', 'hard'
-vim.g.everforest_better_performance = 1
-vim.cmd('colorscheme everforest')
+--vim.g.everforest_background = 'hard' -- Options: 'soft', 'medium', 'hard'
+--vim.g.everforest_better_performance = 1
+--vim.cmd('colorscheme everforest')
 
 
 -- Moonlight
