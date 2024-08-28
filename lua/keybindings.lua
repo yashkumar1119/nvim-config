@@ -19,6 +19,9 @@ vim.keymap.set('n', '<C-S-s>', vim.cmd.wa) -- (Ctrl + Shift + s)
 vim.keymap.set('n', '<C-q>', vim.cmd.q) -- (Ctrl + q)
 vim.keymap.set('n', '<C-S-q>', ':q!<CR>') -- (Ctrl + Shift + q)
 
+-- Error Message
+vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float(nil, {focusable=false})<CR>', { noremap = true, silent = true })
+
 
 -- Harpoon
 local mark = require("harpoon.mark")
