@@ -44,24 +44,11 @@ return require('packer').startup(function(use)
     -- Base16 Sandcastle
     use 'chriskempson/base16-vim'
 
-	-- File Tree
-	use {
-		'nvim-tree/nvim-tree.lua',
-		requires = {
-			'nvim-tree/nvim-web-devicons', -- optional
-		},
-	}
-
 	-- Lualine 
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 	}
-
-	-- Toggle Term 
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup()
-    end}
 
     -- Auto Pair
     use {
@@ -71,8 +58,6 @@ return require('packer').startup(function(use)
             require("nvim-autopairs").setup {}
         end
     }
-
-    -- Icons
 
 
     -- Autosave

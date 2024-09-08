@@ -7,7 +7,7 @@ local lsp_servers = {
     'gopls',
     'clangd',
     'pyright',
-    'tsserver',
+    'ts_ls',
     'rust_analyzer',
     'lua_ls',
     'jdtls',
@@ -49,6 +49,9 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- Harpoon 
+
+
+
 
 local harpoon = require('harpoon')
 
@@ -150,77 +153,6 @@ require('lualine').setup {
     inactive_winbar = {},
     extensions = {}
 }
-
--- Toggle Tree 
-
-require("toggleterm").setup{
-    size = function(term)
-        if term.direction == "horizontal" then
-            return 15
-        elseif term.direction == "vertical" then
-            return vim.o.columns * 0.4
-        end
-        return 20
-    end,
-
-    open_mapping = nil,
-    direction = 'horizontal', -- Use 'vertical', 'horizontal', 'tab', or 'float'
-
-    start_in_insert = true,
-    auto_scroll = true,
-    close_on_exit = true,
-    hide_numbers = true,
-
-    highlights = {
-        Normal = {
-            guibg = "#1e1e1e", -- Example background color
-        },
-        NormalFloat = {
-            link = 'Normal'
-        },
-        FloatBorder = {
-            guifg = "#ff0000", -- Example border color
-            guibg = "#1e1e1e", -- Example background color
-        },
-    },
-
-    float_opts = {
-        border = 'single', -- Use 'single', 'double', 'shadow', or 'curved'
-        width = 80,
-        height = 20,
-        winblend = 3,
-        zindex = 10,
-        title_pos = 'left',
-    },
-}
-
--- File Tree
-require('nvim-tree').setup {
-  renderer = {
-    icons = {
-      glyphs = {
-        default = '',  -- File
-        symlink = '',  -- Symlink
-        git = {
-          unstaged = '✖',  -- Unstaged changes
-          staged = '✓',   -- Staged changes
-          untracked = '★', -- Untracked files
-          deleted = '✖`',  -- Deleted files
-          renamed = '➜',  -- Renamed files
-          ignored = '◌',  -- Ignored files
-        },
-        folder = {
-          default = '',  -- Folder (default)
-          open = '',    -- Folder (open)
-          empty = '',   -- Empty folder
-          empty_open = '', -- Empty folder (open)
-          symlink = '', -- Folder (symlink)
-        },
-      },
-    },
-  },
-}
-
 
 
 

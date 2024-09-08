@@ -45,27 +45,6 @@ require'lspconfig'.lua_ls.setup {
     }
 }
 -- Colorscheme
-
--- Base16 Sandcastle
-vim.cmd('colorscheme moonlight')
--- Everforest
---vim.g.everforest_background = 'hard' -- Options: 'soft', 'medium', 'hard'
---vim.g.everforest_better_performance = 1
---vim.cmd('colorscheme everforest')
-
-
--- Moonlight
-
--- Edits
-vim.g.moonlight_italic_comments = false
-vim.g.moonlight_italic_keywords = false
-vim.g.moonlight_italic_functions = false
-vim.g.moonlight_italic_variables = false
-vim.g.moonlight_contrast = true
-vim.g.moonlight_borders = false
-vim.g.moonlight_disable_background = false
-
--- Load
---require('moonlight').set()
---vim.cmd[[colorscheme moonlight]]
-
+vim.cmd('colorscheme everforest')
+vim.cmd[[highlight Normal guibg=NONE ctermbg=NONE]]
+vim.cmd[[highlight NonText guibg=NONE ctermbg=NONE]]

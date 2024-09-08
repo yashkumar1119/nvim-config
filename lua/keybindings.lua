@@ -44,9 +44,4 @@ vim.keymap.set('i', '<C-e>', function() require('cmp').abort() end, { noremap = 
 vim.keymap.set('i', '<C-j>', function() require('cmp').scroll(4) end, { noremap = true, silent = true }) -- (Ctrl + j)
 vim.keymap.set('i', '<C-k>', function() require('cmp').scroll(-4) end, { noremap = true, silent = true }) -- (Ctrl + k)
 
--- File Tree
-vim.keymap.set('n', '<leader>`', ':NvimTreeToggle<CR>', { noremap = true }) -- (Leader + `)
-
--- Toggle Term 
-vim.keymap.set('n', '<leader>t', function() require("toggleterm").toggle() end, { noremap = true, silent = true }) -- (Leader + t)
 
