@@ -1,8 +1,6 @@
 -- Configurations (Plugins & Neovim)
-
 -- LSP
 local lspconfig = require('lspconfig')
-
 local lsp_servers = {
     'gopls',
     'clangd',

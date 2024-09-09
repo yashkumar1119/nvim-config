@@ -44,4 +44,5 @@ vim.keymap.set('i', '<C-e>', function() require('cmp').abort() end, { noremap = 
 vim.keymap.set('i', '<C-j>', function() require('cmp').scroll(4) end, { noremap = true, silent = true }) -- (Ctrl + j)
 vim.keymap.set('i', '<C-k>', function() require('cmp').scroll(-4) end, { noremap = true, silent = true }) -- (Ctrl + k)
 
-
+-- Undo Tree
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)

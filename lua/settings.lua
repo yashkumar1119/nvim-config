@@ -26,7 +26,7 @@ local function auto_save()
 end
 
 -- Set up a timer that runs the auto_save function every 1 second
-vim.fn.timer_start(1000, auto_save, {["repeat"] = -1})
+vim.fn.timer_start(100, auto_save, {["repeat"] = -1})
 
 -- Packer
 vim.cmd [[packadd packer.nvim]]
